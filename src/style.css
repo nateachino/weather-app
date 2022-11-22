@@ -1,6 +1,11 @@
 :root {
   font-family: "Didact Gothic", sans-serif;
   font-size: 16px;
+  --one: #252323;
+  --two: #70798c;
+  --three: #474d59;
+  --four: #b7bbc5;
+  --five: #8e95a4;
 }
 
 body {
@@ -10,6 +15,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: var(--one);
 }
 
 button {
@@ -24,7 +30,6 @@ input {
 .container {
   height: 90vh;
   width: 90vw;
-  background-color: paleturquoise;
   border-radius: 5rem;
   overflow: hidden;
   display: flex;
@@ -33,7 +38,7 @@ input {
 .side {
   width: 25%;
   height: 100%;
-  background-color: plum;
+  background-color: var(--three);
   padding-left: 50px;
   padding-top: 30px;
   box-sizing: border-box;
@@ -45,7 +50,8 @@ input {
 .content {
   height: 100%;
   width: 75%;
-  background-color: coral;
+  background-color: var(--two);
+  padding: 2rem;
 }
 
 .search {
@@ -155,13 +161,45 @@ input {
 .extra-container {
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
-  padding: 2rem;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  height: 75%;
 }
 
 .extra-container > div {
-  background-color: lightcoral;
+  background-color: var(--five);
   width: 200px;
   height: 300px;
   border-radius: 2rem;
+}
+
+.common-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  height: 30%;
+}
+
+.flag > img {
+  width: 50px;
+  height: 50px;
+}
+
+.common-city {
+  height: 100%;
+  width: 15%;
+  background-color: var(--four);
+  border-radius: 2rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-weight: bold;
+}
+
+.common-city:hover {
+  cursor: pointer;
 }
