@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <script src="../src/index.js" defer></script>
+    <link rel="stylesheet" href="../src/style.css" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/d04bec4b20.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Mr+Dafoe&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Oxygen:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yellowtail&display=swap" rel="stylesheet">
+  <body>
+    <div class="container">
+      <div class="side">
+        <div class="side-top">
+          <div class="search">
+            <button class="search-button">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <input
+              class="search-bar"
+              placeholder="Search for city or town..."
+            />
+          </div>
+        </div>
+
+        <div class="side-middle">
+          <img id="weather-icon" src="../src/assets/sun.png" />
+          <div class="temp-display">--
+            <div class="tiny">°F</div>
+          </div>
+          <div class="date-display">--,
+            <div class="time">--</div>
+          </div>
+        </div>
+
+        <div class="side-bottom">
+          <div class="rain-measure">
+            <div class="rain-icon"><i class="fa fa-cloud" aria-hidden="true"></i></div>
+            <div class="rain-text">Rain Chance - --</div>
+          </div>
+
+          <div class="weather-condition">
+            <div class="condition-icon"><img class="condition-icon" src="/src/assets/wind-sock.png"></div>
+            <div class="condition-text">--</div>
+          </div>
+
+          <div class="location">
+            <div class="location-name">--</div>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="extra-info">
+          <div class="extra-container">
+            <div class="feel"></div>
+            <div class="humiditiy"></div>
+            <div class="wind"></div>
+            <div class="sun-info"></div>
+            <div class="visibility"></div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
