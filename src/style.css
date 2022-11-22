@@ -1,9 +1,9 @@
 :root {
   font-family: "Didact Gothic", sans-serif;
   font-size: 16px;
-  --one: #252323;
-  --two: #70798c;
-  --three: #474d59;
+  --one: #ced4da;
+  --two: #dee2e6;
+  --three: #e9ecef;
   --four: #b7bbc5;
   --five: #8e95a4;
 }
@@ -33,12 +33,15 @@ input {
   border-radius: 5rem;
   overflow: hidden;
   display: flex;
+  box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.75);
 }
 
 .side {
   width: 25%;
   height: 100%;
-  background-color: var(--three);
+  background-color: var(--two);
   padding-left: 50px;
   padding-top: 30px;
   box-sizing: border-box;
@@ -50,7 +53,7 @@ input {
 .content {
   height: 100%;
   width: 75%;
-  background-color: var(--two);
+  background-color: var(--three);
   padding: 2rem;
 }
 
@@ -163,6 +166,7 @@ input {
   gap: 1rem;
   flex-wrap: nowrap;
   justify-content: space-around;
+  align-items: center;
   height: 75%;
 }
 
@@ -176,8 +180,6 @@ input {
 .common-bottom {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 10px;
   height: 30%;
 }
 
@@ -186,14 +188,21 @@ input {
   height: 50px;
 }
 
+.common-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .common-city {
   height: 100%;
-  width: 15%;
+  width: 10%;
   background-color: var(--four);
   border-radius: 2rem;
   padding: 1rem;
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;

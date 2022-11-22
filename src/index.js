@@ -4,6 +4,8 @@ const time = document.querySelector(".date-display");
 const timeTiny = document.querySelector(".time");
 const date = new Date();
 
+const cityButton = document.querySelectorAll(".common-city");
+
 const days = [
   "Sunday",
   "Monday",
@@ -33,6 +35,21 @@ searchButton.addEventListener("click", () => {
   displayData(data);
 });
 
+cityButton.forEach((element) => {
+  element.addEventListener("click", () => {
+    let cityText = element.querySelector(".city-text");
+    let weather = weatherAtLocation(cityText.innerHTML);
+    let data = weather.then((results) => {
+      console.log(results);
+      return results.json();
+    });
+    weather.catch((err) => {
+      console.log("error");
+    });
+    displayData(data);
+  });
+});
+
 function displayData(info) {
   info.then((results) => {
     const condition = document.querySelector(".condition-text");
@@ -40,16 +57,22 @@ function displayData(info) {
     const temp = document.querySelector(".temp-display");
     const rainMeter = document.querySelector(".rain-text");
     const icon = document.querySelectorAll(".condition-icon")[1];
+    const bigIcon = document.querySelector("#weather-icon");
 
     let unix_timestamp = results.dt;
+    let tz = results.timezone;
 
-    let date = new Date(unix_timestamp * 1000);
+    let date = new Date((unix_timestamp + tz) * 1000);
     let hours = date.getHours();
     let minutes = "0" + date.getMinutes();
-    let seconds = "0" + date.getSeconds();
 
     let formattedTime = hours + ":" + minutes.substr(-2);
 
+    if (unix_timestamp <= results.sys.sunrise) {
+      bigIcon.src = "../src/assets/crescent-moon.png";
+    } else {
+      bigIcon.src = "../src/assets/sun.png";
+    }
     console.log(results);
 
     icon.src =
