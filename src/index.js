@@ -1,3 +1,5 @@
+import moment from "moment";
+
 const cityNameInput = document.querySelector(".search-bar");
 const searchButton = document.querySelector(".search-button");
 const time = document.querySelector(".date-display");
@@ -61,8 +63,11 @@ function displayData(info) {
 
     let unix_timestamp = results.dt;
     let tz = results.timezone;
+    let tzInMins = tz / 60;
 
-    let date = new Date((unix_timestamp + tz) * 1000);
+    let date = new Date(unix_timestamp * 1000);
+    let offset = moment().utcOffset(tzInMins).format("h:mm A");
+    console.log(tz);
     let hours = date.getHours();
     let minutes = "0" + date.getMinutes();
 

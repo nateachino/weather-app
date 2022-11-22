@@ -158,23 +158,23 @@ input {
 .extra-info,
 .extra-container {
   width: 100%;
-  height: 100%;
+  height: 80%;
 }
 
 .extra-container {
-  display: flex;
+  padding: 2rem;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 1rem;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: center;
-  height: 75%;
 }
 
 .extra-container > div {
-  background-color: var(--five);
-  width: 200px;
-  height: 300px;
+  background-color: var(--four);
   border-radius: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .common-bottom {
@@ -183,15 +183,68 @@ input {
   height: 30%;
 }
 
+.extra-header {
+  margin-top: 2rem;
+}
+
+.common-header,
+.extra-header {
+  font-size: 32px;
+}
+
+.conversion {
+  width: 80%;
+  font-size: 32px;
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.conversion > button {
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.celcius {
+  background-color: white;
+  color: black;
+}
+.faren {
+  background-color: black;
+  color: white;
+}
+
+.extra {
+  padding: 1rem;
+  box-sizing: border-box;
+  font-size: 1.5rem;
+}
+
 .flag > img {
   width: 50px;
   height: 50px;
 }
 
+.common-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .common-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+}
+
+.common-bottom {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .common-city {
@@ -207,6 +260,8 @@ input {
   align-items: center;
   gap: 1rem;
   font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .common-city:hover {
