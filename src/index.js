@@ -78,62 +78,73 @@ cityButton.forEach((element) => {
 
 celciusButton.addEventListener("click", () => {
   if (displayed) {
-    selectedMeasure = 1;
-    celciusButton.style.color = "white";
-    celciusButton.style.backgroundColor = "black";
+    if (!selectedMeasure == 1) {
+      selectedMeasure = 1;
+      celciusButton.style.color = "white";
+      celciusButton.style.backgroundColor = "black";
 
-    const temp = document.querySelector(".temp-display");
-    const feelTemp = document.querySelector(".feel-temp");
-    console.log(temp.innerHTML.match(/\d+/)[0]);
-    temp.innerHTML =
-      Math.round((temp.innerHTML.match(/\d+/)[0] - 32) * (5 / 9)) + "°C";
+      const temp = document.querySelector(".temp-display");
+      const feelTemp = document.querySelector(".feel-temp");
+      console.log(temp.innerHTML.match(/\d+/)[0]);
+      temp.innerHTML =
+        Math.round((temp.innerHTML.match(/\d+/)[0] - 32) * (5 / 9)) + "°C";
 
-    feelTemp.innerHTML =
-      Math.round((feelTemp.innerHTML.match(/\d+/)[0] - 32) * (5 / 9)) + "°C";
-    farenButton.style.color = "white";
-    farenButton.style.backgroundColor = "black";
+      feelTemp.innerHTML =
+        Math.round((feelTemp.innerHTML.match(/\d+/)[0] - 32) * (5 / 9)) + "°C";
+      farenButton.style.color = "black";
+      farenButton.style.backgroundColor = "white";
+    } else {
+    }
   } else {
-    selectedMeasure = 1;
-    const tempDisplay = document.querySelector(".temp-display");
-    const feelTemp = document.querySelector(".feel-temp");
-    tempDisplay.innerHTML = "--°C";
-    feelTemp.innerHTML = "--°C";
+    if (!selectedMeasure == 1) {
+      selectedMeasure = 1;
+      const tempDisplay = document.querySelector(".temp-display");
+      const feelTemp = document.querySelector(".feel-temp");
+      tempDisplay.innerHTML = "--°C";
+      feelTemp.innerHTML = "--°C";
 
-    celciusButton.style.color = "white";
-    celciusButton.style.backgroundColor = "black";
+      celciusButton.style.color = "white";
+      celciusButton.style.backgroundColor = "black";
 
-    farenButton.style.color = "black";
-    farenButton.style.backgroundColor = "white";
+      farenButton.style.color = "black";
+      farenButton.style.backgroundColor = "white";
+    }
   }
 });
 
 farenButton.addEventListener("click", () => {
   if (displayed) {
-    farenButton.style.color = "white";
-    farenButton.style.backgroundColor = "black";
-    celciusButton.style.color = "black";
-    celciusButton.style.backgroundColor = "white";
-    selectedMeasure = 0;
-    const temp = document.querySelector(".temp-display");
-    const feelTemp = document.querySelector(".feel-temp");
-    console.log(temp.innerHTML.match(/\d+/)[0]);
-    temp.innerHTML =
-      Math.round(temp.innerHTML.match(/\d+/)[0] * 1.8 + 32) + "°F";
+    if (!selectedMeasure == 0) {
+      selectedMeasure = 0;
+      farenButton.style.color = "white";
+      farenButton.style.backgroundColor = "black";
 
-    feelTemp.innerHTML =
-      Math.round(feelTemp.innerHTML.match(/\d+/)[0] * 1.8 + 32) + "°F";
+      celciusButton.style.color = "black";
+      celciusButton.style.backgroundColor = "white";
+      selectedMeasure = 0;
+      const temp = document.querySelector(".temp-display");
+      const feelTemp = document.querySelector(".feel-temp");
+      console.log(temp.innerHTML.match(/\d+/)[0]);
+      temp.innerHTML =
+        Math.round(temp.innerHTML.match(/\d+/)[0] * 1.8 + 32) + "°F";
+
+      feelTemp.innerHTML =
+        Math.round(feelTemp.innerHTML.match(/\d+/)[0] * 1.8 + 32) + "°F";
+    }
   } else {
-    selectedMeasure = 0;
-    const tempDisplay = document.querySelector(".temp-display");
-    const feelTemp = document.querySelector(".feel-temp");
-    tempDisplay.innerHTML = "--°F";
-    feelTemp.innerHTML = "--°F";
+    if (!selectedMeasure == 0) {
+      selectedMeasure = 0;
+      const tempDisplay = document.querySelector(".temp-display");
+      const feelTemp = document.querySelector(".feel-temp");
+      tempDisplay.innerHTML = "--°F";
+      feelTemp.innerHTML = "--°F";
 
-    celciusButton.style.color = "black";
-    celciusButton.style.backgroundColor = "white";
+      celciusButton.style.color = "black";
+      celciusButton.style.backgroundColor = "white";
 
-    farenButton.style.color = "white";
-    farenButton.style.backgroundColor = "black";
+      farenButton.style.color = "white";
+      farenButton.style.backgroundColor = "black";
+    }
   }
 });
 
