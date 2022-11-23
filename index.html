@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <script src="../src/index.js" defer></script>
+    <script type="module"src="../src/index.js" defer></script>
     <link rel="stylesheet" href="../src/style.css" />
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/d04bec4b20.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,10 +40,6 @@
         </div>
 
         <div class="side-bottom">
-          <div class="rain-measure">
-            <div class="rain-icon"><i class="fa fa-cloud" aria-hidden="true"></i></div>
-            <div class="rain-text">Rain Chance - --</div>
-          </div>
 
           <div class="weather-condition">
             <div class="condition-icon"><img class="condition-icon" src="/src/assets/wind-sock.png"></div>
@@ -115,15 +111,71 @@
         <div class="extra-info">
           <div class="extra-header">Extra Information</div>
           <div class="extra-container">
+
             <div class="feel extra">
-              <div class="feel-header">Feels Like</div>
-              
+              <div class="extra-card-header">Feels Like</div>
+              <div class="extra-wrapper">
+                <div class="feel-icon"><i class="fa fa-thermometer-half" aria-hidden="true"></i></div>
+                <div class="feel-temp">--°F</div>
+              </div>
+
+              <div class="say-wrapper">
+                <div class="feel-say-icon"><i></i></div>
+                <div class="feel-say">---</div>
+              </div>
             </div>
-            <div class="humiditiy extra"></div>
-            <div class="wind extra"></div>
-            <div class="sun-info extra"></div>
-            <div class="visibility extra"></div>
-            <div class="time-zone extra"></div>
+
+            <div class="humiditiy extra">
+              <div class="extra-card-header">Humiditiy</div>
+              <div class="extra-wrapper">
+                <div class="humid-icon"><i class="fa-solid fa-droplet"></i></div>
+                <div class="humid-percentage">--%</div>
+              </div>
+            </div>
+
+            <div class="wind extra">
+              <div class="extra-card-header">Wind Information</div>
+              <div class="extra-wrapper">
+                  <img class="wind-icon" src="../src/assets/wind-sock.png">
+                  <div class="wind-speed">--mph</div>
+              </div>
+              
+              <div class="wind-wrapper">
+                <div class="wind-direction-icon"><i class="fa-regular fa-compass"></i></div>
+                <div class="wind-direction-text">--- </div>
+              </div>
+            </div>
+            <div class="sun-info extra">
+              <div class="extra-card-header">Sunrise and Sunset</div>
+              <div class="extra-wrapper ">
+                <div class="sun-wrapper">
+                  <div class="sunrise">
+                    <div class="sun-rise-icon"><i class="fa-regular fa-sun"></i></div>
+                    <div class="sun-rise-text">--:--</div>
+                  </div>
+                  <div class="sunset">
+                    <div class="sun-set-icon"><i class="fa-regular fa-moon"></i></div>
+                    <div class="sun-set-text">--:--</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="visibility extra">
+              <div class="extra-card-header">Visibility</div>
+              <div class="extra-wrapper">
+                <div class="visible-icon"><i class="fa-solid fa-eye"></i></div>
+                <div class="visible-length">-- mi.</div>
+              </div>
+
+            </div>
+            <div class="time-zone extra">
+              <div class="extra-card-header">Cloudiness</div>
+              <div class="extra-wrapper">
+                <div class="clock-icon"><i class="fa-solid fa-cloud"></i></div>
+                <div class="timezone-text">--%</div>
+              </div>
+            </div>
 
 
 
