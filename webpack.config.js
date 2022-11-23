@@ -1,5 +1,5 @@
 const path = require("path");
-var moment = require("moment");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -8,24 +8,26 @@ module.exports = {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
   },
-
-  plugins: [
-    // To strip all locales except “en”
-    new MomentLocalesPlugin(),
-
-    // Or: To strip all locales except “en”, “es-us” and “ru”
-    // (“en” is built into Moment and can’t be removed)
-    new MomentLocalesPlugin({
-      localesToKeep: ["es-us", "ru"],
-    }),
-  ],
-
   module: {
     rules: [
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
     ],
   },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "./src/assets/"),
+          to: path.resolve(__dirname, "dist"),
+        },
+      ],
+    }),
+  ],
 };

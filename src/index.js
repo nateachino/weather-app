@@ -1,3 +1,5 @@
+import "style.css";
+
 const cityNameInput = document.querySelector(".search-bar");
 const searchButton = document.querySelector(".search-button");
 const time = document.querySelector(".date-display");
@@ -246,7 +248,7 @@ function displayData(info) {
     }
   });
   info.catch((err) => {
-    console.log(err);
+    cityNameInput.style.borderBottom = "red 1px solid";
   });
 }
 
@@ -259,7 +261,5 @@ async function weatherAtLocation(location) {
     );
 
     return response;
-  } catch {
-    console.log("failed");
-  }
+  } catch {}
 }
