@@ -1,4 +1,4 @@
-import "style.css";
+import "./style.css";
 
 const cityNameInput = document.querySelector(".search-bar");
 const searchButton = document.querySelector(".search-button");
