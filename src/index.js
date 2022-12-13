@@ -197,9 +197,9 @@ function displayData(info) {
       .format("h:mm A");
 
     if (unix_timestamp <= results.sys.sunrise) {
-      bigIcon.src = "../src/assets/crescent-moon.png";
+      bigIcon.src = "./assets/crescent-moon.png";
     } else {
-      bigIcon.src = "../src/assets/sun.png";
+      bigIcon.src = "./assets/sun.png";
     }
     console.log(results);
 
