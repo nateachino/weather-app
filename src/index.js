@@ -1,4 +1,7 @@
 import "./style.css";
+import moment from "moment/moment";
+
+console.log(moment());
 
 const cityNameInput = document.querySelector(".search-bar");
 const searchButton = document.querySelector(".search-button");
@@ -170,14 +173,6 @@ function displayData(info) {
 
     let unix_timestamp = results.dt;
     let tz = results.timezone;
-    let tzInMins = tz / 100;
-
-    let date = new Date((unix_timestamp + tzInMins) * 1000);
-
-    let hours = date.getHours();
-    let minutes = "0" + date.getMinutes();
-
-    let formattedTime = hours + ":" + minutes.substr(-2);
 
     let sunriseTime = new Date(results.sys.sunrise * 1000);
     let srHours = sunriseTime.getHours();
@@ -191,6 +186,20 @@ function displayData(info) {
 
     let formattedSS = srHours + ":" + ssMins.substr(-2);
 
+    const timezone = tz;
+    const timezoneInMinutes = timezone / 60;
+    const currTime = moment().utcOffset(timezoneInMinutes).format("h:mm A");
+
+    const sunrise = moment
+      .unix(results.sys.sunrise)
+      .utcOffset(timezoneInMinutes)
+      .format("h:mm A");
+
+    const sunset = moment
+      .unix(results.sys.sunset)
+      .utcOffset(timezoneInMinutes)
+      .format("h:mm A");
+
     if (unix_timestamp <= results.sys.sunrise) {
       bigIcon.src = "../src/assets/crescent-moon.png";
     } else {
@@ -200,7 +209,7 @@ function displayData(info) {
 
     icon.src =
       "http://openweathermap.org/img/w/" + results.weather[0].icon + ".png";
-    time.innerHTML = dateString + formattedTime;
+    time.innerHTML = dateString + currTime;
     temp.innerHTML = Math.trunc((results.main.temp - 273.15) * 1.8 + 32) + "°F";
     city.innerHTML = results.name + ", " + results.sys.country;
     condition.innerHTML = results.weather[0].main;
@@ -217,8 +226,8 @@ function displayData(info) {
         }
       });
     }
-    sunriseText.innerHTML = formattedSR;
-    sunsetText.innerHTML = formattedSS;
+    sunriseText.innerHTML = sunrise;
+    sunsetText.innerHTML = sunset;
 
     if (selectedMeasure == 0) {
       temp.innerHTML =
