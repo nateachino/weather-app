@@ -174,21 +174,17 @@ function displayData(info) {
     let unix_timestamp = results.dt;
     let tz = results.timezone;
 
-    let sunriseTime = new Date(results.sys.sunrise * 1000);
-    let srHours = sunriseTime.getHours();
-    let srMins = "0" + sunriseTime.getMinutes();
-
-    let formattedSR = srHours + ":" + srMins.substr(-2);
-
-    let sunsetTime = new Date(results.sys.sunset * 1000);
-    let ssHours = sunsetTime.getHours();
-    let ssMins = "0" + sunsetTime.getMinutes();
-
-    let formattedSS = srHours + ":" + ssMins.substr(-2);
-
     const timezone = tz;
     const timezoneInMinutes = timezone / 60;
     const currTime = moment().utcOffset(timezoneInMinutes).format("h:mm A");
+
+    var weekDayName = moment
+      .unix(unix_timestamp)
+      .utcOffset(timezoneInMinutes)
+      .format("dddd");
+
+    dateString = weekDayName + ", ";
+    console.log(weekDayName);
 
     const sunrise = moment
       .unix(results.sys.sunrise)
